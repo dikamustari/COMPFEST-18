@@ -12,7 +12,7 @@ Challenge ini menggunakan skema RSA yang dimodifikasi dengan polynomial quotient
 
 1. **Source Code Analysis**
 
-   Menganalisis `chall.sage` untuk memahami proses enkripsi dan menemukan hubungan antara public exponent dan private exponent yang dapat dimanfaatkan.
+   Melakukan analisis pada `chall.sage` untuk memahami proses enkripsi dan menemukan hubungan antara public exponent dan private exponent yang dapat dimanfaatkan.
 
 2. **Generalized Wiener Attack**
 
