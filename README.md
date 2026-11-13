@@ -6,33 +6,33 @@
 
 ### Description
 
-Challenge ini menggunakan skema RSA yang dimodifikasi dengan polynomial quotient ring. Tujuannya adalah menemukan kembali plaintext dari ciphertext yang diberikan.
+This challenge utilizes an RSA scheme modified with a polynomial quotient ring. The objective is to recover the plaintext from the given ciphertext.
 
 ### Solution
 
 1. **Source Code Analysis**
 
-   Melakukan analisis pada `chall.sage` untuk memahami proses enkripsi dan menemukan hubungan antara public exponent dan private exponent yang dapat dimanfaatkan.
+   Analyze `chall.sage` to understand the encryption process and identify a relationship between the public exponent and the private exponent that can be exploited.
 
 2. **Generalized Wiener Attack**
 
-   Menggunakan Continued Fraction untuk memulihkan private exponent serta mendapatkan faktor prima `p` dan `q` dari modulus `N`.
+   Apply a Continued Fraction-based approach to recover the private exponent and determine the prime factors `p` and `q` of the modulus `N`.
 
 3. **Polynomial Factorization**
 
-   Dekripsi menggunakan private exponent biasa ternyata tidak berhasil karena polynomial `x^10 - 2` tidak irreducible modulo `p` maupun `q`.
+   Standard decryption using the recovered private exponent fails because the polynomial `x^10 - 2` is not irreducible modulo `p` or `q`.
 
 4. **Recovering the True Decryption Exponent**
 
-   Melakukan Distinct Degree Factorization (DDF) untuk memperoleh struktur faktor polynomial, kemudian menghitung true decryption exponent yang sesuai.
+   Perform Distinct Degree Factorization (DDF) to determine the factorization structure of the polynomial, then calculate the correct decryption exponent.
 
 5. **Decryption**
 
-   Menggunakan exponent tersebut untuk mendekripsi ciphertext, kemudian mengonversi hasil koefisien menjadi plaintext.
+   Use the calculated exponent to decrypt the ciphertext, then convert the resulting coefficients back into the plaintext.
 
 ### Usage
 
-Jalankan solver dengan:
+Run the solver using:
 
 ```bash
 python3 solevrr.py chall.sage
